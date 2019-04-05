@@ -77,11 +77,18 @@ public class Front implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getActionCommand() == "A") {
-			System.out.println("A was pressed!");
-			new APanel(p, f);
-		}else
-		System.out.println("clicked : " + e.getActionCommand());
+		
+		System.out.println(e.getActionCommand() + " was Pressed!");
+		
+		switch(e.getActionCommand()) {
+			case "A" : new APanel(p, f); break;
+			case "B" : new BPanel(p, f); break;
+			case "C" : new CPanel(p, f); break;
+			case "D" : new DPanel(p, f); break;
+			case "E" : new EPanel(p, f); break;
+			case "F" : new FPanel(p, f); break;
+				
+		}
 		
 	}
 }
