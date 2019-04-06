@@ -1,31 +1,27 @@
 package reference;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
 
 import javax.swing.*;
 
 public class FPanel {
 	
-	JLabel title = new JLabel("F");
-	JButton click = new JButton("Back to Front");
+	JLabel writing = new JLabel("This is the music");
 	
 	public FPanel(JPanel front, JFrame f) {
 		
 		front.setVisible(false);
 		
-		JPanel p = new JPanel();
-		p.add(title);
-		p.add(click);
+		JPanel page = new JPanel(new BorderLayout());
 		
-		click.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				f.remove(p);
-				front.setVisible(true);
-			}
-		});
+		new Trims(page, "F PAGE TITLE", f, front);
 		
-		f.add(p);
+		JPanel main = new JPanel(new GridBagLayout());
+			   main.add(writing);
+		
+		
+		page.add(main,BorderLayout.CENTER);
+		f.add(page);
 		
 	}
 

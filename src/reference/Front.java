@@ -15,14 +15,13 @@ public class Front implements ActionListener{
 	
 	public Front() {
 		
-		 	   f.setSize(700, 500);
-		 	   f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		 	   f.setLocation(300, 100);
+		f.setSize(700, 500);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.setLocation(300, 100);
 		 	   
 		createMenus(f);
 		
-		
-			   p.setLayout(new GridBagLayout());
+		p.setLayout(new GridBagLayout());
 		 	   
 		Font font = new Font("serif", Font.BOLD, 24);	
 			 one.setFont(font);
@@ -40,7 +39,7 @@ public class Front implements ActionListener{
 		f.setVisible(true);
 	}
 
-	private void createMenus(JFrame f2) {
+	private void createMenus(JFrame f1) {
 		
 		JMenuBar mb = new JMenuBar();
 		
@@ -72,7 +71,7 @@ public class Front implements ActionListener{
 		mb.add(second);
 		mb.add(third);
 		
-		f2.setJMenuBar(mb);
+		f1.setJMenuBar(mb);
 	}
 
 	@Override
@@ -89,6 +88,5 @@ public class Front implements ActionListener{
 			case "F" : new FPanel(p, f); break;
 				
 		}
-		
 	}
 }

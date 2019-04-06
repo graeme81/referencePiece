@@ -1,31 +1,27 @@
 package reference;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
 
 import javax.swing.*;
 
 public class DPanel {
 	
-	JLabel title = new JLabel("D");
-	JButton click = new JButton("Back to Front");
+	JLabel writing = new JLabel("D PAGE!");
 	
 	public DPanel(JPanel front, JFrame f) {
 		
 		front.setVisible(false);
 		
-		JPanel p = new JPanel();
-		p.add(title);
-		p.add(click);
+		JPanel page = new JPanel(new BorderLayout());
+			   
+		new Trims(page, "D PAGE TITLE", f, front);
 		
-		click.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				f.remove(p);
-				front.setVisible(true);
-			}
-		});
+		JPanel main = new JPanel(new GridBagLayout());
+		       main.add(writing);
 		
-		f.add(p);
+		page.add(main);
+		
+		f.add(page, BorderLayout.CENTER);
 		
 	}
 
