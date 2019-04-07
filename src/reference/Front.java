@@ -1,45 +1,30 @@
 package reference;
 
-import java.awt.*;
+//import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
 
 public class Front implements ActionListener{
-	
-	JLabel one = new JLabel("Pick From", SwingConstants.CENTER);
-	JLabel two = new JLabel("The Menus", SwingConstants.CENTER);
-	JLabel three = new JLabel("Above", SwingConstants.CENTER);
-	JFrame f = new JFrame("Front Page");
-	JPanel p = new JPanel();
+		
+	JFrame frame = new JFrame("Front Page");
+	JPanel open;
 	
 	public Front() {
 		
-		f.setSize(700, 500);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.setLocation(300, 100);
+		frame.setSize(700, 500);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocation(300, 100);
 		 	   
-		createMenus(f);
+		createMenus();
 		
-		p.setLayout(new GridBagLayout());
-		 	   
-		Font font = new Font("serif", Font.BOLD, 24);	
-			 one.setFont(font);
-		 	 two.setFont(font);
-			 three.setFont(font);
-		 	   
-		JPanel writing = new JPanel();
-			   writing.setLayout(new BoxLayout(writing, BoxLayout.Y_AXIS));
-			   writing.add(one);
-			   writing.add(two);
-			   writing.add(three);
+		new FrontPanel(frame);
+//		new APanel(frame);
 		
-		p.add(writing);   //, new GridBagConstraints());
-		f.add(p);
-		f.setVisible(true);
+		frame.setVisible(true);
 	}
-
-	private void createMenus(JFrame f1) {
+	
+	private void createMenus() {
 		
 		JMenuBar mb = new JMenuBar();
 		
@@ -71,7 +56,7 @@ public class Front implements ActionListener{
 		mb.add(second);
 		mb.add(third);
 		
-		f1.setJMenuBar(mb);
+		frame.setJMenuBar(mb);
 	}
 
 	@Override
@@ -80,12 +65,24 @@ public class Front implements ActionListener{
 		System.out.println(e.getActionCommand() + " was Pressed!");
 		
 		switch(e.getActionCommand()) {
-			case "A" : new APanel(p, f); break;
-			case "B" : new BPanel(p, f); break;
-			case "C" : new CPanel(p, f); break;
-			case "D" : new DPanel(p, f); break;
-			case "E" : new EPanel(p, f); break;
-			case "F" : new FPanel(p, f); break;
+			case "A" : frame.getContentPane().removeAll();
+					   new APanel(frame);
+					   break;
+			case "B" : frame.getContentPane().removeAll();
+					   new BPanel(frame); 
+					   break;
+			case "C" : frame.getContentPane().removeAll();
+					   new CPanel(frame); 
+					   break;
+			case "D" : frame.getContentPane().removeAll();
+					   new DPanel(frame); 
+					   break;
+			case "E" : frame.getContentPane().removeAll();
+					   new EPanel(frame); 
+					   break;
+			case "F" : frame.getContentPane().removeAll();
+					   new FPanel(frame); 
+					   break;
 				
 		}
 	}

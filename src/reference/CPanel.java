@@ -8,13 +8,11 @@ public class CPanel {
 	
 	JLabel writing = new JLabel("BOOOOOOOM!");
 	
-	public CPanel(JPanel front, JFrame f) {
-		
-		front.setVisible(false);
+	public CPanel(JFrame f) {
 		
 		JPanel page = new JPanel(new BorderLayout());
 			   
-		new Trims(page, "C PAGE TITLE", f, front);
+		new Trims(page, "C PAGE TITLE", f);
 		
 		JPanel main = new JPanel(new GridBagLayout());
 			   main.setBackground(Color.YELLOW);
@@ -23,5 +21,6 @@ public class CPanel {
 		page.add(main,BorderLayout.CENTER);
 		
 		f.add(page);
+		f.setVisible(true);
 	}
 }

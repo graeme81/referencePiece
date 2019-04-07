@@ -8,20 +8,18 @@ public class DPanel {
 	
 	JLabel writing = new JLabel("D PAGE!");
 	
-	public DPanel(JPanel front, JFrame f) {
-		
-		front.setVisible(false);
-		
+	public DPanel(JFrame f) {
+				
 		JPanel page = new JPanel(new BorderLayout());
 			   
-		new Trims(page, "D PAGE TITLE", f, front);
+		new Trims(page, "D PAGE TITLE", f);
 		
 		JPanel main = new JPanel(new GridBagLayout());
 		       main.add(writing);
 		
 		page.add(main);
-		
 		f.add(page, BorderLayout.CENTER);
+		f.setVisible(true);
 		
 	}
 

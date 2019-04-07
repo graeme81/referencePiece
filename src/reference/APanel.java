@@ -1,7 +1,6 @@
 package reference;
 
 import java.awt.*;
-import java.awt.event.*;
 
 import javax.swing.*;
 
@@ -13,13 +12,13 @@ public class APanel{
 	JButton click = new JButton("Enter Name");
 	JLabel result = new JLabel("RESULT");
 
-	public APanel(JPanel front, JFrame f){
+	public APanel(JFrame f){
 		
-		front.setVisible(false);
+		System.out.println("IN A PANEL");
 		
 		JPanel page = new JPanel(new BorderLayout());
 		
-		new Trims(page, "A PAGE TITLE", f, front);
+		new Trims(page, "A PAGE TITLE", f);
 		
 		JPanel main = new JPanel(new GridBagLayout());
 			   
@@ -46,15 +45,17 @@ public class APanel{
 			   		   			  gbc.gridy = 4;
 			   		   			  main.add(result, gbc);
 			   
-		click.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				f.remove(main);
-				front.setVisible(true);
-			}
-		});
+//		click.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				f.remove(main);
+//				front.setVisible(true);
+//			}
+//		});
 		
 		page.add(main,BorderLayout.CENTER);
+		
 		f.add(page);
+		f.setVisible(true);
 		
 	}
 }
