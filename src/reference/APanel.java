@@ -17,7 +17,7 @@ public class APanel{
 		
 		JPanel page = new JPanel(new BorderLayout());
 		
-		new Trims(page, "A PAGE TITLE", f);
+		new Trims(page, "Simple Input", f);
 		
 		JPanel main = new JPanel(new GridBagLayout());
 			   

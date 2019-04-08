@@ -12,8 +12,8 @@ public class BPanel {
 	String[] go = {"1","2","3","4","5","6","7","8","9","10"};
 	String[] stop = {"11","12","13","14","15","16","17","18","19","20"};
 	
-	JComboBox start = new JComboBox(go);
-	JComboBox end = new JComboBox(stop);
+	JComboBox<?> start = new JComboBox<Object>(go);
+	JComboBox<?> end = new JComboBox<Object>(stop);
 	
 	JTextArea textArea = new JTextArea(10, 10);
 	JScrollPane scrollPane = new JScrollPane(textArea); 
@@ -22,7 +22,7 @@ public class BPanel {
 		
 		JPanel page = new JPanel(new BorderLayout());
 		
-		new Trims(page, "B PAGE TITLE", f);
+		new Trims(page, "Combo Boxes", f);
 		
 		JPanel main = new JPanel(new GridBagLayout());
 			   main.setBackground(Color.orange);
