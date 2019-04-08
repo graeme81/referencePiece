@@ -1,6 +1,5 @@
 package reference;
 
-//import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
@@ -8,7 +7,6 @@ import javax.swing.*;
 public class Front implements ActionListener{
 		
 	JFrame frame = new JFrame("Front Page");
-	JPanel open;
 	
 	public Front() {
 		
@@ -19,10 +17,12 @@ public class Front implements ActionListener{
 		createMenus();
 		
 		new FrontPanel(frame);
-//		new APanel(frame);
 		
 		frame.setVisible(true);
 	}
+	
+	
+	
 	
 	private void createMenus() {
 		
@@ -61,8 +61,6 @@ public class Front implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		System.out.println(e.getActionCommand() + " was Pressed!");
 		
 		switch(e.getActionCommand()) {
 			case "A" : frame.getContentPane().removeAll();

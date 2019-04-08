@@ -3,7 +3,7 @@ package reference;
 import java.awt.*;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
+//import javax.swing.border.LineBorder;
 
 public class FrontPanel {
 	
@@ -22,7 +22,7 @@ public class FrontPanel {
 	
 		JPanel main = new JPanel();
 			   main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
-			   main.setBorder(new LineBorder(Color.BLACK)); 
+//			   main.setBorder(new LineBorder(Color.BLACK)); 
 			   main.add(one);
 			   main.add(two);
 			   main.add(three);

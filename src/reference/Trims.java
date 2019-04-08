@@ -28,9 +28,7 @@ public class Trims {
 		   
 		   frontPage.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					System.out.println("DELETE PANEL");
 					f.remove(page);
-					//front.setVisible(true);
 					new FrontPanel(f);
 				}
 			});

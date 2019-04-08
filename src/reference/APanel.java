@@ -1,6 +1,7 @@
 package reference;
 
 import java.awt.*;
+import java.awt.event.*;
 
 import javax.swing.*;
 
@@ -13,8 +14,6 @@ public class APanel{
 	JLabel result = new JLabel("RESULT");
 
 	public APanel(JFrame f){
-		
-		System.out.println("IN A PANEL");
 		
 		JPanel page = new JPanel(new BorderLayout());
 		
@@ -45,12 +44,13 @@ public class APanel{
 			   		   			  gbc.gridy = 4;
 			   		   			  main.add(result, gbc);
 			   
-//		click.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				f.remove(main);
-//				front.setVisible(true);
-//			}
-//		});
+		click.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String name = input.getText();
+				String secretWord = new String(word.getPassword());
+				result.setText(name + ", your secret word is - " + secretWord);
+			}
+		});
 		
 		page.add(main,BorderLayout.CENTER);
 		
