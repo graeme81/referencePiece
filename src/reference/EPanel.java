@@ -2,12 +2,14 @@ package reference;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.concurrent.TimeUnit;
+import java.util.List;
 
 import javax.swing.*;
 import javax.swing.event.*;
 
 public class EPanel {
+	
+	SwingWorker<Void, Integer> worker;
 	
 	JLabel writing = new JLabel("We Are working here!");
 	JLabel sliderVal = new JLabel("Slider Value is : 50");
@@ -46,6 +48,10 @@ public class EPanel {
 		click.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
+				System.out.println("click pressed");
+				
+				click.setEnabled(false);
+				
 				int total = 0;
 				
 				if(!tog.isSelected() && tf.getText().length() > 0) {
@@ -61,14 +67,45 @@ public class EPanel {
 					total = ((int)(Math.random()*100));
 				}
 				
-				for(int x = 0 ; x < total+1; x++) {
-					prog.setValue(x);
-//					swing worker needed?
-				}
+				System.out.println("total calculated as "+ total);
+				
+				int[] answer = {total};
+				
+				worker = new SwingWorker<Void, Integer>(){
+
+					protected Void doInBackground() throws Exception {
+						System.out.println("running progress bar");
+						
+						for(int x = 0; x < answer[0]+1; x++) {
+							publish(x);
+							Thread.sleep(100);
+						};
+						
+						System.out.println("Progress Bar complete");
+						return null;
+					}
+					
+					protected void process(List<Integer> chunks) {
+						for(int x:chunks) {
+							prog.setValue(x);
+						}
+					}
+					
+					protected void done() {
+						click.setEnabled(true);
+					}
+					
+				};
+				
+				worker.execute();
+				
 			}
 		});
 		
-	
+//		for(int x = 0 ; x < total+1; x++) {
+//			prog.setValue(x);
+////			swing worker needed?
+//		}
 		
 		
 		
