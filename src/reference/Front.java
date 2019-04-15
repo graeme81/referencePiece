@@ -32,17 +32,17 @@ public class Front implements ActionListener{
 		JMenu second = new JMenu("Two");
 		JMenu third = new JMenu("Third");
 		
-		JMenuItem a = new JMenuItem("A");
+		JMenuItem a = new JMenuItem("Simple Input");
 				  a.addActionListener(this);
-		JMenuItem b = new JMenuItem("B");
+		JMenuItem b = new JMenuItem("Combo Boxes");
 				  b.addActionListener(this);
-		JMenuItem c = new JMenuItem("C");
+		JMenuItem c = new JMenuItem("Check Boxes");
 				  c.addActionListener(this);
-		JMenuItem d = new JMenuItem("D");
+		JMenuItem d = new JMenuItem("Radio Buttons");
 				  d.addActionListener(this);
-		JMenuItem e = new JMenuItem("E");
+		JMenuItem e = new JMenuItem("The Game");
 				  e.addActionListener(this);
-		JMenuItem f = new JMenuItem("F");
+		JMenuItem f = new JMenuItem("Files");
 				  f.addActionListener(this);
 		
 		first.add(a);
@@ -63,24 +63,24 @@ public class Front implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		
 		switch(e.getActionCommand()) {
-			case "A" : frame.getContentPane().removeAll();
-					   new APanel(frame);
-					   break;
-			case "B" : frame.getContentPane().removeAll();
-					   new BPanel(frame); 
-					   break;
-			case "C" : frame.getContentPane().removeAll();
-					   new CPanel(frame); 
-					   break;
-			case "D" : frame.getContentPane().removeAll();
-					   new DPanel(frame); 
-					   break;
-			case "E" : frame.getContentPane().removeAll();
-					   new EPanel(frame); 
-					   break;
-			case "F" : frame.getContentPane().removeAll();
-					   new FPanel(frame); 
-					   break;
+			case "Simple Input" :  frame.getContentPane().removeAll();
+					   			   new APanel(frame);
+					   			   break;
+			case "Combo Boxes" :   frame.getContentPane().removeAll();
+					   	  	 	   new BPanel(frame); 
+					   	  	 	   break;
+			case "Check Boxes" :   frame.getContentPane().removeAll();
+					   			   new CPanel(frame); 
+					   			   break;
+			case "Radio Buttons" : frame.getContentPane().removeAll();
+					   			   new DPanel(frame); 
+					   			   break;
+			case "The Game" : 	   frame.getContentPane().removeAll();
+					   			   new EPanel(frame); 
+					   			   break;
+			case "Files" : 	  	   frame.getContentPane().removeAll();
+					   			   new FPanel(frame); 
+					   			   break;
 				
 		}
 	}

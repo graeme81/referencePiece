@@ -11,7 +11,7 @@ public class EPanel {
 	
 	SwingWorker<Void, Integer> worker;
 	
-	JLabel writing = new JLabel("We Are working here!");
+	JLabel writing = new JLabel("");
 	JLabel sliderVal = new JLabel("Slider Value is : 50");
 	JSlider slide = new JSlider();
 	JSpinner spin = new JSpinner(new SpinnerNumberModel(25,0,50,1));
@@ -71,6 +71,8 @@ public class EPanel {
 				
 				int[] answer = {total};
 				
+				//swing worker 
+				
 				worker = new SwingWorker<Void, Integer>(){
 
 					protected Void doInBackground() throws Exception {
@@ -84,15 +86,14 @@ public class EPanel {
 						System.out.println("Progress Bar complete");
 						return null;
 					}
-					
+					//publishing
 					protected void process(List<Integer> chunks) {
-						for(int x:chunks) {
-							prog.setValue(x);
-						}
+						for(int x:chunks) prog.setValue(x);
 					}
-					
+					//finished background run
 					protected void done() {
 						click.setEnabled(true);
+						writing.setText("You reached " + answer[0]);
 					}
 					
 				};
@@ -102,32 +103,9 @@ public class EPanel {
 			}
 		});
 		
-//		for(int x = 0 ; x < total+1; x++) {
-//			prog.setValue(x);
-////			swing worker needed?
-//		}
-		
-		
-		
 		buildPage(f);
 		
-	}
-
-
-	
-//	System.out.println("slider = " +slide.getValue());
-//	System.out.println("spin = " + spinVal);
-//	System.out.println("Text Length = " + textLen);
-	
-	
-//	System.out.println(total);	
-	
-	
-	
-	
-	
-	
-	
+	}	
 	
 	
 	private void buildPage(JFrame f) {
@@ -170,5 +148,3 @@ public class EPanel {
 	}
 
 }
-
-
